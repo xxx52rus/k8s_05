@@ -1,0 +1,22 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: empty-dir
+spec:
+  containers:
+  - image: nginx:latest
+    name: web
+    volumeMounts:
+    - mountPath: /logs
+      name: share
+  - image: python:3.9.2-alpine
+    name: process
+    command:
+    - "sleep"
+    - "3600"
+    volumeMounts:
+    - mountPath: /process
+      name: share
+  volumes:
+  - name: share
+    emptyDir: {}
