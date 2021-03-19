@@ -20,7 +20,7 @@ helm list -n ingress
 ```
 # Create Helm Chart
 ```
-helm chart app
+helm create app
 ```
 ```
 rm app/values.yaml
