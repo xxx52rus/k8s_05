@@ -3,14 +3,14 @@ kind: Service
 metadata:
   creationTimestamp: null
   labels:
-    app: {{ .Values.application.name }}
-  name: {{ .Values.service.name }}
+    app: {{.Release.Name}}
+  name: {{.Release.Name}}-svc
 spec:
   ports:
   - port: {{ .Values.service.port }}
     protocol: TCP
     targetPort: {{ .Values.application.port }}
   selector:
-    app: {{ .Values.application.name }}
+    app: {{.Release.Name}}
 status:
   loadBalancer: {}

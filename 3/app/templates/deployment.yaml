@@ -3,19 +3,19 @@ kind: Deployment
 metadata:
   creationTimestamp: null
   labels:
-    app: {{ .Values.application.name }}
-  name: {{ .Values.deployment.name }}
+    app: {{.Release.Name}}
+  name: {{.Release.Name}}-deployment
 spec:
   replicas: {{ .Values.replicas.count }}
   selector:
     matchLabels:
-      app: {{ .Values.application.name }}
+      app: {{.Release.Name}}
   strategy: {}
   template:
     metadata:
       creationTimestamp: null
       labels:
-        app: {{ .Values.application.name }}
+        app: {{.Release.Name}}
     spec:
       containers:
       - image: nginx:{{ .Values.image.tag }}
