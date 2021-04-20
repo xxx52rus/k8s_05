@@ -3,14 +3,14 @@ kind: Service
 metadata:
   creationTimestamp: null
   labels:
-    app: web
-  name: web
+    app: {{ .Values.application.name }}
+  name: {{ .Values.service.name }}
 spec:
   ports:
-  - port: 80
+  - port: {{ .Values.service.port }}
     protocol: TCP
-    targetPort: 80
+    targetPort: {{ .Values.application.port }}
   selector:
-    app: web
+    app: {{ .Values.application.name }}
 status:
   loadBalancer: {}

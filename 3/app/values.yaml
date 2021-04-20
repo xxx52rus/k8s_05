@@ -1,2 +1,17 @@
 image:
   tag: 1.19.8
+replicas:
+  count: 1
+service:
+  name: web
+  port: 80
+application:
+  name: web-page
+  port: 80
+ingress:
+  name: ingress-app
+deployment:
+  name: web-deployment
+
+
+
